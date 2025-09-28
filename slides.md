@@ -15,7 +15,7 @@ mdc: true
 
 # 網頁漏洞入門
 
-20251002 ． tantuyu
+20251002．tantuyu
 
 ---
 
@@ -130,10 +130,7 @@ layout: tty-four-grid
 - 採用安全架構模式。
 
 ::wrong-example::
-<InputExample label="帳號" value="tantuyu" />
-<InputExample label="密碼" value="12345678" />
-
-<p class="text-red-400 !mb-0">系統提示：密碼錯誤</p>
+<LoginExample username="tantuyu" password="123456" />
 
 ::right-example::
 系統提示：使用者名稱或密碼有誤。

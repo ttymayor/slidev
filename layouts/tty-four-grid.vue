@@ -24,7 +24,7 @@ const props = defineProps({
 
 <template>
   <div class="slidev-layout two-columns w-full h-full">
-    <div class="col-span-2">
+    <div class="col-span-2 pb-4">
       <slot />
     </div>
     <div class="grid grid-cols-2 gap-8">
@@ -56,3 +56,13 @@ const props = defineProps({
   </div>
   <Footer />
 </template>
+
+<style>
+.bottom-right > * > p {
+  margin: 0;
+}
+
+.bottom-left > * > p {
+  margin: 0;
+}
+</style>

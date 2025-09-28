@@ -8,3 +8,9 @@ import Footer from "../components/Footer.vue";
   </div>
   <Footer />
 </template>
+
+<style>
+.slidev-layout h2 {
+  margin-bottom: 1rem;
+}
+</style>
