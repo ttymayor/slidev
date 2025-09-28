@@ -24,8 +24,8 @@ mdc: true
 <Toc columns="2" />
 
 ---
-
-## transition: slide-up
+transition: slide-up
+---
 
 ## OWASP Top 10
 
@@ -41,10 +41,8 @@ mdc: true
 10. Server-Side Request Forgery (SSRF)
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Broken Access Control (XSS) 權限控制失效
@@ -66,10 +64,8 @@ https://example.com/userinfo/username=admin
 ```
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Cryptographic Failures 加密機制失效
@@ -95,10 +91,8 @@ layout: tty-four-grid
 ```
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Injection 注入式攻擊
@@ -120,10 +114,8 @@ layout: tty-four-grid
 ```
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Insecure Design 不安全設計
@@ -149,10 +141,8 @@ layout: tty-four-grid
 或者可以再用 CAPTCHA 驗證或 2FA
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Security Misconfiguration 安全設定缺陷
@@ -179,10 +169,8 @@ https://example.com/.htaccess
 敏感的配置內容都應該要避免公開，甚至能減少有這些敏感訊息都要盡量減少。也請勿將所有檔案權限改寫為 777
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Vulnerable and Outdated Components 危險或過舊的元件
@@ -206,10 +194,8 @@ layout: tty-four-grid
 使用現今最新最穩定的版本（LTS），因為過去版本不再進行維護，過去的版本漏洞只會越找越多。因此要經常更新套件並維護專案。
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Identification and Authentication Failures 認證及驗證機制失效
@@ -233,10 +219,8 @@ layout: tty-four-grid
 使用強化過的密碼（如：至少一個特殊字元、大寫字母、數字）、使用 2FA、Passkey 等等，確保帳號是由帳號本人操作，以及有時限的 Session。
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Software and Data Integrity Failures 軟體及資料完整性失效
@@ -263,10 +247,8 @@ layout: tty-four-grid
 - 對數據做加密檢查驗證
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Security Logging and Monitoring Failures 資安記錄及監控失效
@@ -293,10 +275,8 @@ layout: tty-four-grid
 - 依法保存日誌時限
 
 ---
-
 transition: slide-up
 layout: tty-four-grid
-
 ---
 
 ### Server-Side Request Forgery (SSRF) 伺服器端請求偽造
