@@ -27,7 +27,7 @@ const props = defineProps({
     <div class="col-span-2">
       <slot />
     </div>
-    <div class="grid grid-cols-2 grid-rows-2 gap-8">
+    <div class="grid grid-cols-2 gap-8">
       <div class="top-left" :class="props.class">
         <slot name="top-left" />
       </div>
