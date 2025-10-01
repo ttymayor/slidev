@@ -15,4 +15,16 @@ import Footer from "../components/Footer.vue";
 .slidev-layout.tty-middle {
   @apply flex flex-col items-center justify-center;
 }
+
+.slidev-layout.tty-middle p {
+  @apply mt-0;
+}
+
+.slidev-layout.tty-middle blockquote {
+  @apply mb-4;
+}
+
+.slidev-layout.tty-middle pre {
+  @apply mb-4;
+}
 </style>
