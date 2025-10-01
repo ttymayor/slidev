@@ -3,9 +3,9 @@
 theme: default
 # background: https://cover.sli.dev
 author: tantuyu
-title: 網頁漏洞入門
+title: 入門網頁漏洞
 info: |
-  ## 網頁漏洞入門
+  ## 入門網頁漏洞
 # class: text-center
 drawings:
   persist: false
@@ -13,7 +13,7 @@ transition: slide-left
 mdc: true
 ---
 
-# 網頁漏洞入門
+# 入門網頁漏洞
 
 20251002．tantuyu
 
@@ -21,10 +21,167 @@ mdc: true
 
 ## 目錄
 
-<Toc columns="2" />
+<Toc columns="1" />
+
+---
+layout: tty-middle
+transition: slide-up
+---
+
+## 極．入門
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+### F12 DevTool
+
+瀏覽器內建的除錯 / 檢查工具
+
+<Image src="./F12_DevTool_example.png" height="240" />
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+（在不同瀏覽器上可能有不同的名稱欄位）
+
+- Elements
+- Console
+- Network
+- Application
+- Sources
+- ...
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+你說...這東西對駭客有用？
+
+<Image src="./Thinking.jpg" height="180" />
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+對，有用，可以說只要牽扯到網頁、工程師、開發、資料等，幾乎在這裡可以找到問題
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+常用欄：
+
+<v-clicks>
+
+- Elements 元素：網頁的內容，僅可在 Client 端修改
+- Console 控制台：執行 JavaScript、查看錯誤訊息
+- Network 網路：可以看到網頁請求了什麼、引入了什麼、API 呼叫
+- Application 應用程式：可以看到 Cookie、Storage 等
+- Sources 原始碼：瀏覽前端 JS 程式碼、下中斷點、逐行 Debug
+
+</v-clicks>
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+### Cookie vs Storage 差異整理
+
+| 特性        | Cookie       | LocalStorage | SessionStorage |
+| --------- | ------------ | ------------ | -------------- |
+| 容量        | 幾 KB         | ~5–10 MB     | ~5–10 MB       |
+| 存活時間      | 可設定到期日       | 永久（直到刪除）     | 分頁關閉即刪除        |
+| 是否隨請求自動送出 | ✅ 會          | ❌ 不會         | ❌ 不會           |
+| 常見用途      | Session、登入狀態 | 偏好設定、大量暫存    | 臨時資料、單次流程      |
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+### 恕我快速帶過程式語言的基礎語法 ><
+
+```js
+// 算術
+1 + 2, 5 - 3, 2 * 3, 10 / 2, 5 % 2
+
+// 比較（注意 == 與 === 差別）
+"5" == 5    // true （會型別轉換）
+"5" === 5   // false（純比較型別與值）
+
+// 邏輯
+true && false, true || false, !true
+```
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+```js
+// 條件
+if (x > 5) {
+  console.log("big");
+} else if (x === 5) {
+  console.log("equal");
+} else {
+  console.log("small");
+}
+
+// 迴圈
+for (let i=0; i<3; i++) console.log(i);
+
+let i = 0;
+while (i < 3) { console.log(i); i++; }
+```
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+所以... 來幾題簡單的 picoCTF 吧
+
+- [Inspect HTML](https://play.picoctf.org/practice/challenge/275?category=1&page=1)
+- [Includes](https://play.picoctf.org/practice/challenge/274?category=1&page=1)
+- [Insp3ct0r](https://play.picoctf.org/practice/challenge/18?category=1&page=2)
+
+###### tag: `Web`
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+再來幾題稍微動腦、需要 Google 或 AI 幫忙的吧
+
+- [dont-use-client-side](https://play.picoctf.org/practice/challenge/66?category=1&page=2)
+- [logon](https://play.picoctf.org/practice/challenge/46?category=1&page=2)
+- [Scavenger Hunt](https://play.picoctf.org/practice/challenge/161?category=1&page=2)
+
+###### tag: `Web`
 
 ---
 transition: slide-up
+layout: tty-middle
 ---
 
 ## OWASP Top 10
@@ -41,6 +198,7 @@ transition: slide-up
 10. Server-Side Request Forgery (SSRF)
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -64,6 +222,7 @@ https://example.com/userinfo/username=admin
 ```
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -91,6 +250,7 @@ layout: tty-four-grid
 ```
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -114,6 +274,7 @@ layout: tty-four-grid
 ```
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -138,6 +299,7 @@ layout: tty-four-grid
 或者可以再用 CAPTCHA 驗證或 2FA
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -166,6 +328,7 @@ https://example.com/.htaccess
 敏感的配置內容都應該要避免公開，甚至能減少有這些敏感訊息都要盡量減少。也請勿將所有檔案權限改寫為 777
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -191,6 +354,7 @@ layout: tty-four-grid
 使用現今最新最穩定的版本（LTS），因為過去版本不再進行維護，過去的版本漏洞只會越找越多。因此要經常更新套件並維護專案。
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -216,6 +380,7 @@ layout: tty-four-grid
 使用強化過的密碼（如：至少一個特殊字元、大寫字母、數字）、使用 2FA、Passkey 等等，確保帳號是由帳號本人操作，以及有時限的 Session。
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -244,6 +409,7 @@ layout: tty-four-grid
 - 對數據做加密檢查驗證
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -272,6 +438,7 @@ layout: tty-four-grid
 - 依法保存日誌時限
 
 ---
+hideInToc: true
 transition: slide-up
 layout: tty-four-grid
 ---
@@ -292,3 +459,151 @@ layout: tty-four-grid
 主要攻擊原理
 
 <Image src="./SSRF_example.png" height="420" />
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+## 網頁漏洞那麼多，到底怎麼戳戳漏洞？
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+### 工具和情報不能少
+
+- [ZeroDay](https://zeroday.hitcon.org/)
+- [CVE](https://www.cve.org/)
+- [CWE](https://cwe.mitre.org/)
+- [Wappalyzer](https://www.wappalyzer.com/) [(Chrome Extension)](https://chromewebstore.google.com/detail/wappalyzer-technology-pro/gppongmhjkpfnbhagpmjfkannfbllamg)
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+### ZeroDay Example
+
+1. [台灣工業與應用數學會 Vite 任意檔案讀取漏洞](https://zeroday.hitcon.org/vulnerability/ZD-2025-01167)
+2. [ischool 澔學學習股份有限公司 存取控制缺陷](https://zeroday.hitcon.org/vulnerability/ZD-2025-01171)
+
+---
+hideInToc: true
+layout: tty-middle
+---
+
+### CWE vs CVE
+
+CWE 可以理解為類別
+
+CVE 可以理解為實例
+
+- [CWE-79 (XSS)](https://cwe.mitre.org/data/definitions/79.html)
+- [CWE-89 (SQL Injection)](https://cwe.mitre.org/data/definitions/89.html)
+- [CVE-2024-49038](https://www.cve.org/CVERecord?id=CVE-2024-49038)
+- [CVE-2023-32530](https://www.cve.org/CVERecord?id=CVE-2023-32530)
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+## 攻擊
+
+> 拜託別亂打、會出事
+> 
+> ~~要打請先事先告知（或掛 VPN、跳板）~~
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+### XSS Example
+
+```html
+<script>alert("XSS success")</script>
+```
+
+```html
+<q onmouseover=alert(1)>鼠標移過我</q>
+```
+
+```html
+<svg onload=alert(1)>
+```
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+### SQL Injection Example
+
+先來認識 SQL 是什麼
+
+> SQL（Structured Query Language，結構化查詢語言）是一種**用來和資料庫溝通的語言**。 -- ChatGPT
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+獲取所有使用者（user）
+
+```sql
+SELECT * FROM users;
+```
+
+獲取所有使用者（user），條件是當 id=1 時
+
+```sql
+SELECT * FROM users WHERE id=1;
+```
+
+獲取所有使用者（user），條件是當 id=1 且 username="tantuyu"
+
+```sql
+SELECT * FROM users WHERE id=1 AND username="tantuyu";
+```
+
+新增一個使用者 username 為 tantuyu，密碼為 tantuyu
+
+```sql
+INSERT INTO users (username, password) VALUES ("tantuyu", "tantuyu");
+```
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+假設後端是 Python，以
+
+```py
+sql = f"SELECT * FROM users WHERE username = '{input_username}' AND password = '{input_password}';"
+cur.execute(sql)
+rows = cur.fetchall()
+```
+
+
+
+依難度排序
+
+- [Inspect HTML](https://play.picoctf.org/practice/challenge/275?category=1&page=1) tag: `Web` `F12`
+- [Includes](https://play.picoctf.org/practice/challenge/274?category=1&page=1) tag: `Web` `F12`
+- [Insp3ct0r](https://play.picoctf.org/practice/challenge/18?category=1&page=2) tag: `Web` `F12`
+
+- [dont-use-client-side](https://play.picoctf.org/practice/challenge/66?category=1&page=2) tag: `Web` `F12` `JS`
+- [logon](https://play.picoctf.org/practice/challenge/46?category=1&page=2) tag: `Web` `F12` `BAC`
+- [Scavenger Hunt](https://play.picoctf.org/practice/challenge/161?category=1&page=2) tag: `Web` `more than F12`
+
+- [SSTI1](https://play.picoctf.org/practice/challenge/492?category=1&page=1) tag: `編碼` `Web`
