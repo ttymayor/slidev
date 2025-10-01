@@ -27,4 +27,13 @@ import Footer from "../components/Footer.vue";
 .slidev-layout.tty-middle pre {
   @apply mb-4;
 }
+
+.slidev-vclick-target {
+  transition: opacity 300ms ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 </style>
