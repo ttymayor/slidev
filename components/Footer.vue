@@ -9,7 +9,7 @@ const { $slidev } = useSlideContext();
   >
     <div class="text-xs">{{ $slidev.configs.author }}</div>
     <div class="text-xs">
-      {{ $slidev.configs.title }}
+      <Link to="2" :title="$slidev.configs.title" />
     </div>
     <div class="text-xs"><SlideCurrentNo /> / <SlidesTotal /></div>
   </footer>
