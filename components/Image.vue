@@ -20,6 +20,6 @@ const props = defineProps({
     class="w-full h-full flex items-center justify-center"
     :style="{ height: height + 'px' }"
   >
-    <img :src="src" :style="{ height: height + 'px' }" />
+    <img :src="src" :style="{ height: height + 'px' }" class="rounded-md" />
   </div>
 </template>
