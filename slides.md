@@ -81,7 +81,43 @@ layout: tty-middle
 transition: slide-up
 ---
 
-常用欄：
+最近有個例子「[鏟子英雄](https://shovel-heroes.com/)」被爆
+
+> 「前端居然能直接改變後端狀態，還能執行一堆未授權操作，可以隨意完成/取消人力需求，以及 CRUD 開一下 F12 所有人的電話都直接現形了」 -- 擷取自 [Threads 文](https://www.threads.com/@jaja.rifuci/post/DPO9EkiEka7?xmt=AQF0XEtDCF4wTb34yGv_9hxY083rP0gvF6RXsW5dputgeg&slof=1)
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+題外話，另個 Vibe Coding 的慘況，[去你的，Google 這招太奸詐了！](https://www.facebook.com/lady1211christy/posts/pfbid0Yuz52ioNrh3FLYB6r1CmVnHsENs1EDYbKSDos7etSE3YEPSiD9sf5zstN4AFk2ysl?rdid=c1Y4PkkQgeoGVmwR)
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+我知道各位怕刪文，所以我截圖了
+
+<Image src="./Damn_you_Google.png" height="320" />
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+幫各位總結，這篇原文簡單直白來說就是：直接把密碼寫在程式碼當中。
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+F12 中的常用功能：
 
 <v-clicks>
 
@@ -593,17 +629,3 @@ sql = f"SELECT * FROM users WHERE username = '{input_username}' AND password = '
 cur.execute(sql)
 rows = cur.fetchall()
 ```
-
-
-
-依難度排序
-
-- [Inspect HTML](https://play.picoctf.org/practice/challenge/275?category=1&page=1) tag: `Web` `F12`
-- [Includes](https://play.picoctf.org/practice/challenge/274?category=1&page=1) tag: `Web` `F12`
-- [Insp3ct0r](https://play.picoctf.org/practice/challenge/18?category=1&page=2) tag: `Web` `F12`
-
-- [dont-use-client-side](https://play.picoctf.org/practice/challenge/66?category=1&page=2) tag: `Web` `F12` `JS`
-- [logon](https://play.picoctf.org/practice/challenge/46?category=1&page=2) tag: `Web` `F12` `BAC`
-- [Scavenger Hunt](https://play.picoctf.org/practice/challenge/161?category=1&page=2) tag: `Web` `more than F12`
-
-- [SSTI1](https://play.picoctf.org/practice/challenge/492?category=1&page=1) tag: `編碼` `Web`
