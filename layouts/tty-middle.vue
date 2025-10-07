@@ -28,6 +28,10 @@ import Footer from "../components/Footer.vue";
   @apply mb-4;
 }
 
+.slidev-layout.tty-middle ol {
+  @apply mb-4;
+}
+
 .slidev-vclick-target {
   transition: opacity 300ms ease;
 }

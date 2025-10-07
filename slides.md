@@ -555,7 +555,6 @@ layout: tty-middle
 > ~~要打請先事先告知（或掛 VPN、跳板）~~
 
 ---
-hideInToc: true
 transition: slide-up
 layout: tty-middle
 ---
@@ -576,6 +575,71 @@ layout: tty-middle
 
 ---
 hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+三個細分類型
+
+<v-clicks>
+
+- Reflected XSS（反射型）
+- Stored XSS（儲存型）
+- DOM-based XSS（基於 DOM）
+
+</v-clicks>
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+1. Reflected XSS（反射型）
+
+惡意腳本隨請求（如 query string、form）被伺服器回傳並立即在回應中執行。
+
+特點：不儲存在伺服器，需誘導使用者點擊精心構造的 URL。
+
+Example: 釣魚網站
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+2. Stored XSS（儲存型）
+
+惡意腳本被永久儲存在伺服器（資料庫、留言板、user profile 等），任何查看該內容的使用者都會執行該腳本。
+
+特點：破壞力較大，能影響多數使用者或高權限帳號。
+
+Example: 留言板、個人簡介等注入
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+3. DOM-based XSS（基於 DOM）
+
+攻擊點完全在客戶端（JavaScript），例如前端直接把 location.hash、location.search、或其他 DOM 值寫入 innerHTML，沒有經過 server-side 回應。
+
+其通常配合前兩者發生
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+### 你一定想說... 就區區一個 alert 可以幹嘛？
+
+駭客可以利用 JS 將 Cookie 或其他帶有敏感訊息的資料送回攻擊者的伺服器。
+
+---
 transition: slide-up
 layout: tty-middle
 ---
@@ -616,16 +680,217 @@ SELECT * FROM users WHERE id=1 AND username="tantuyu";
 INSERT INTO users (username, password) VALUES ("tantuyu", "tantuyu");
 ```
 
+SQL 的註解寫法：`--`
+
+```sql
+-- 我是註解，不會被執行
+```
+
 ---
 hideInToc: true
 transition: slide-up
 layout: tty-middle
 ---
 
-假設後端是 Python，以
+如果你對資料庫的 CURD 操作有興趣，可以到 [SQLBolt](https://sqlbolt.com/) 學習，或是到 LeetCode 刷題。
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+假設後端是 Python 寫的，然後其登入功能做查詢時的語法是以下語法
 
 ```py
 sql = f"SELECT * FROM users WHERE username = '{input_username}' AND password = '{input_password}';"
 cur.execute(sql)
-rows = cur.fetchall()
+user = cur.fetchone()
+
+if user:
+  # ...
+  return session
 ```
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+1. 要解決查詢條件，那就先字串閉合
+2. 字串閉合後，我們再創建一個為 `true` 的判斷式，並用 `OR` 連接
+3. 最後把剩餘的註解掉
+
+<div v-click>
+聽不懂嗎...
+</div>
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+那我們來看看駭客會怎麼輸入
+
+input_username
+<div v-click>
+```
+' OR 1=1;--
+```
+</div>
+input_password
+<div v-click>
+```
+You can type anything
+```
+</div>
+
+````md magic-move
+```py
+f"SELECT * FROM users WHERE username = '{input_username}' AND password = '{input_password}';"
+```
+
+```sql
+SELECT * FROM users WHERE username = '' OR 1=1;--' AND password = 'You can type anything';
+```
+````
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+```sql
+SELECT * FROM users WHERE username = '' OR 1=1;--' AND password = 'You can type anything';
+```
+
+欸？你發現你登入成功了！
+
+因為條件 `username = '' OR 1=1` 為恆真，而我在最後寫了 `;--` 來閉合 SQL 語法並註解後面其他條件，所以我必定會獲得一個登入的 session。
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+以上 <Link to="35">XSS Example</Link> 跟 <Link to="41">SQL Injection Example</Link> 我個人覺得比較有趣且好入門
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+接下來我們來講點比較進階億點點的
+
+<Image src="./A_little_billion.png" height="240" />
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+### Cross-Site Request Forgery (CSRF)
+
+翻成中文叫做**跨站請求偽造**，據說還被稱作：**one-click attack**
+
+1. **跨站**：是發生漏洞的地點，並不在目標網站上。
+2. **請求偽造**：有心人士利用你在惡意網站填的資料，進行修改，並成功請求。
+
+其行為就是釣魚網站上可能發生的事情
+
+<!-- 簡單來說，CSRF 攻擊就是利用使用者已登入的身分，在使用者不知情的情況下執行惡意操作。通常是由有心人士開發了一個網站，並利用了你瀏覽器上的 Cookie 進行濫用。
+尤其是金流及竊取隱私資料
+ -->
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+發生的條件：
+
+1. 目標網站只以單一條件驗證網站身份（只驗證 cookie 或 token）
+2. 沒有驗證請求來源
+
+<Image src="./CSRF_example.png" height="240" />
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+順帶一提，來說說網站會觸發腳本的方式：
+
+- 點擊：`onclick`
+- 滑鼠移過：`onmouseover`
+- 網頁卷軸滾動：`onscroll`
+- 拖拉元素：`ondrag`
+- ...
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+所以現在你是不是不敢亂點網頁了呢？
+
+<Image src="./Scared.png" height="240" />
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+## 防禦
+
+> 如果你想當網頁工程師，要認真讀啊
+> 
+> ~~或是假裝不知道，等到出事了再解決~~
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+### XSS Defense
+
+目標：禁止執行惡意腳本
+
+- 建立白名單，輸入框只允許某些寫法
+- 不使用像是 `innerHTML`、PHP 的直接回傳字串：`'Hello, '.$_GET['name'];` 等
+- 使用 HTML 特殊字元編碼：`&lt;`、`&gt;`、`&quot;` 來代替 `<`、`>`、`"` 等
+- 使用現今流行的框架撰寫
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+### SQL Injection Defense
+
+目標：禁止執行惡意腳本
+
+- 使用參數化查詢，例如：`INSERT INTO users (username, email) VALUES (?, ?);`
+- 建立白名單
+- 不顯示錯誤訊息（可能嘗試攻擊後，給了一個內部執行結果的 Error）
+- 使用現今流行的 ORM（物件關聯對映）
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+## 感謝各位參與
+
+以上簡報內容有部分約 20% 的 ChatGPT 提供資訊，若有誤請麻煩告知我
+
+Email: <a href="mailto:hi@ttymayor.com?subject=【回饋】">hi@ttymayor.com</a>
