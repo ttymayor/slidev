@@ -21,7 +21,28 @@ mdc: true
 
 ## 目錄
 
-<Toc columns="1" />
+<Toc columns="2" />
+
+---
+hideInToc: true
+layout: tty-middle
+transition: slide-up
+---
+
+本課程所有內容僅供學術研究、教育訓練及防禦性安全測試之目的。
+
+道德規範：我們強調所有技術的使用必須嚴格遵守 **道德駭客（Ethical Hacking）** 原則。
+
+法律責任：課程中討論或實作的所有工具和技術（包括但不限於 Nmap, Burp Suite, sqlmap 等），絕不允許用於未經授權的系統、網路或網站。
+
+您只能在以下環境進行測試：
+  - 您完全擁有或管理的系統。
+  - 經由明確且書面授權的目標。
+  - 課程提供的 **靶場或靶機** 環境。
+
+免責聲明：任何學員若將本課程知識用於非法目的或對未經授權的系統造成損害，須自行承擔全部法律責任。本課程講師與主辦單位對此不負任何連帶責任。
+
+請在課程開始前，確認您已完全理解並同意遵守以上所有聲明。
 
 ---
 layout: tty-middle
@@ -836,7 +857,7 @@ layout: tty-middle
 
 ---
 hideInToc: true
-transition: slide-up
+transition: slide-left
 layout: tty-middle
 ---
 
@@ -884,7 +905,7 @@ layout: tty-middle
 - 使用現今流行的 ORM（物件關聯對映）
 
 ---
-transition: slide-up
+transition: slide-left
 layout: tty-middle-two-grids-bottom
 ---
 
@@ -906,6 +927,78 @@ layout: tty-middle-two-grids-bottom
 
 - 及時登出，可以減少 Cookie 上的登入狀態被竊取
 - 啟用雙因子驗證（2FA）
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+## 其他工具介紹
+
+請勿隨意對任何網站使用任何有侵入、滲透等工具！
+
+<div v-click class="text-red-500">
+認真的
+</div>
+
+---
+hideInToc: true
+transition: slide-up
+layout: tty-middle
+---
+
+- [Nmap](https://nmap.org/) 網路掃描/偵測工具，檢測主機、開放端口、運行的服務與版本
+- [sqlmap](https://github.com/sqlmapproject/sqlmap) 自動化 SQL Injection 偵測與利用工具
+- [Burp Suite](https://portswigger.net/burp) 抓包、滲透測試、漏洞檢測工具
+- [Wireshark](https://www.wireshark.org/) 網路協定分析器，捕捉和檢查網路數據封包
+- [OSINT Framework](https://osintframework.com/) 蒐集公開資訊的工具
+- [dirsearch](https://github.com/maurosoria/dirsearch) 路徑爆破工具
+- [CyberChef](https://gchq.github.io/CyberChef/) 加密、解密、雜湊等
+- [jwt](https://www.jwt.io/) 解 JWT 用的
+- ...
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+### Nmap Example
+
+```bash
+nmap [掃描類型] [選項] <IP>
+```
+
+```bash
+nmap <IP>
+nmap -O <IP>  # 作業系統偵測
+nmap -sV <IP>  # 服務和版本偵測
+nmap -sC <IP>  # 腳本掃描
+nmap -A <IP>  # 包含前三者
+```
+
+---
+transition: slide-up
+layout: tty-middle
+---
+
+### sqlmap Example
+
+```bash
+sqlmap -u "<目標網址>" [選項]
+```
+
+```bash
+sqlmap -u "http://example.com/article.php?id=10"
+```
+
+一旦發現有 SQL 漏洞，你還可以訪問資料庫名稱、更甚至資料表的資料
+
+```bash
+sqlmap -u "http://example.com/article.php?id=10" --dbs
+sqlmap -u "http://example.com/article.php?id=10" -D usersdb --tables
+sqlmap -u "http://example.com/article.php?id=10" -D usersdb -T user_info --columns
+sqlmap -u "http://example.com/article.php?id=10" -D usersdb -T user_info --dump
+```
 
 ---
 hideInToc: true
