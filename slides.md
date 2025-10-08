@@ -884,6 +884,26 @@ layout: tty-middle
 - 使用現今流行的 ORM（物件關聯對映）
 
 ---
+transition: slide-up
+layout: tty-middle
+---
+
+### CSRF Defense
+
+目標：禁止其他來源的請求
+
+身為工程師：
+
+- 檢查 Referer Header，建立白名單，只允許特定網域的請求
+- 表單或是相關的 API 請求添加隨機 Token
+- 使用現今流行的框架
+
+身為使用者：
+
+- 及時登出，可以減少 Cookie 上的登入狀態被竊取
+- 啟用雙因子驗證（2FA）
+
+---
 hideInToc: true
 transition: slide-up
 layout: tty-middle
@@ -891,6 +911,6 @@ layout: tty-middle
 
 ## 感謝各位參與
 
-以上簡報內容有部分約 20% 的 ChatGPT 提供資訊，若有誤請麻煩告知我
+以上簡報內容有部分約 10% 的 ChatGPT 提供資訊，若有誤請麻煩告知我
 
 Email: <a href="mailto:hi@ttymayor.com?subject=【回饋】">hi@ttymayor.com</a>
