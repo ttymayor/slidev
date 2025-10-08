@@ -885,18 +885,22 @@ layout: tty-middle
 
 ---
 transition: slide-up
-layout: tty-middle
+layout: tty-middle-two-grids-bottom
 ---
 
 ### CSRF Defense
 
 目標：禁止其他來源的請求
 
+::br::
+
 身為工程師：
 
-- 檢查 Referer Header，建立白名單，只允許特定網域的請求
+- 檢查 Referer Header，只允許特定網域的請求
 - 表單或是相關的 API 請求添加隨機 Token
 - 使用現今流行的框架
+
+::bl::
 
 身為使用者：
 
