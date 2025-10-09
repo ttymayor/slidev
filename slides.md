@@ -955,6 +955,8 @@ layout: tty-middle
 - [dirsearch](https://github.com/maurosoria/dirsearch) 路徑爆破工具
 - [CyberChef](https://gchq.github.io/CyberChef/) 加密、解密、雜湊等
 - [jwt](https://www.jwt.io/) 解 JWT 用的
+- [DVWA](https://github.com/digininja/DVWA) Web 漏洞靶機
+- [OWASP Juice Shop](https://github.com/juice-shop/juice-shop) Web 漏洞靶機
 - ...
 
 ---
@@ -998,6 +1000,25 @@ sqlmap -u "http://example.com/article.php?id=10" --dbs
 sqlmap -u "http://example.com/article.php?id=10" -D usersdb --tables
 sqlmap -u "http://example.com/article.php?id=10" -D usersdb -T user_info --columns
 sqlmap -u "http://example.com/article.php?id=10" -D usersdb -T user_info --dump
+```
+---
+transition: slide-up
+layout: tty-middle
+---
+
+### DVWA
+
+Damn Vulnerable Web Application
+
+安裝教學（可以使用 Docker 或 [自架在系統上](https://hackmd.io/@nfkx8qh9Stak7zRXELQ7mQ/SJLxye6sgx)）
+
+網頁登入帳號密碼：
+
+```
+admin
+```
+```
+password
 ```
 
 ---
